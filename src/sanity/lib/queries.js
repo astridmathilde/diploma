@@ -15,6 +15,18 @@ export const POST_QUERY = defineQuery(
   && slug.current == $slug
   && category->slug.current == $category
   && !(_id in path("drafts.**"))][0]{
-  title, publishedAt, _updatedAt, content
+  title, publishedAt, _updatedAt,
+  "content": content[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "link" && defined(reference) => {
+        "reference": reference->{
+          "category": category->slug.current,
+          "slug": slug.current
+        }
+      }
+    }
+  }
   }`
 )

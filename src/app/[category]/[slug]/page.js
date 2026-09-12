@@ -12,6 +12,36 @@ const components = {
     image: BlockImage,
     video: BlockVideo,
   },
+  marks: {
+    link: ({children, value}) => {
+      const {category, slug} = value?.reference ?? {}
+      if (category && slug) {
+        const url = `/${category}/${slug}`
+        return value?.openInNewTab ? (
+          <a href={url} target="_blank" rel="noreferrer">{children}</a>
+        ) : (
+          <Link href={url}>{children}</Link>
+        )
+      }
+
+      const href = value?.href
+      if (href) {
+        const external =
+          !href.startsWith('/') && !href.startsWith('mailto:') && !href.startsWith('tel:')
+        return (
+          <a
+            href={href}
+            target={external || value?.openInNewTab ? '_blank' : undefined}
+            rel={external ? 'noreferrer noopener' : undefined}
+          >
+            {children}
+          </a>
+        )
+      }
+
+      return <span>{children}</span>
+    },
+  },
 }
 
 export async function generateMetadata({params}) {
