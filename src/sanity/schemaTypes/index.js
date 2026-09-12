@@ -1,4 +1,5 @@
-export const schemaTypes = [
-  // Add your document types here, e.g.:
-  // import page from './page'
-];
+import {post} from './post'
+import {category} from './category'
+import {blockContent} from './blockContent'
+
+export const schemaTypes = [post, category, blockContent]
