@@ -49,6 +49,14 @@ export default async function Home() {
           </ul>
         </section>
       ))}
+
+      <section key="resources">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://www.are.na/astrid-mathilde-boberg/my-diploma-research" rel="external" target="_blank">Research</a></li>
+          <li><a href="https://www.are.na/astrid-mathilde-boberg/my-diploma-tools-methods" rel="external" target="_blank">Tools & methods</a></li>
+        </ul>
+      </section>
     </main>
   )
 }
