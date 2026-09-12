@@ -1,12 +1,15 @@
 export const metadata = {
-  title: "Tools for digital minimalism",
-  description: "A diploma project about tools for digital minimalism.",
+  title: {
+    default: "Designing Calm: Tools for digital minimalism",
+    template: "%s – Designing Calm: Tools for digital minimalism",
+  },
+  description: "A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}</body>git
     </html>
   );
 }

@@ -5,20 +5,13 @@ import Link from 'next/link'
 import BlockImage from '@/components/image'
 import BlockVideo from '@/components/video'
 import {getPost} from '@/sanity/lib/data'
+import {formatDate} from '@/lib/date'
 
 const components = {
   types: {
     image: BlockImage,
     video: BlockVideo,
   },
-}
-
-function formatDate(date) {
-  return new Date(date).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: '2-digit',
-  })
 }
 
 export async function generateMetadata({params}) {
@@ -40,15 +33,19 @@ export default async function PostPage({params}) {
     <h1>{post.title}</h1>
     <PortableText value={post.content} components={components} />
     <footer>
-    <ul>
     {post.publishedAt ? (
-      <li>Date published: <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time></li>
+      <p>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+      </p>
     ) : null }
     {post._updatedAt ? (
-      <li>Last updated: <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time></li>
+      <p>
+      Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>
+      </p>
     ) : null }
-    </ul>
-    <Link href="/">Back to index</Link>
+        <p><em>Designing Calm: Tools for digital minimalism.</em> A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a></p>
+     <p><Link href="/">Back to index</Link></p>
+
+   
     </footer>
     </article>
   )

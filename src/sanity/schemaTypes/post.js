@@ -4,7 +4,7 @@ import {blockContent} from './blockContent'
 
 export const post = defineType({
   name: 'post',
-  title: 'Posts',
+  title: 'Post',
   type: 'document',
   fields: [
     defineField({

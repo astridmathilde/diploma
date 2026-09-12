@@ -5,7 +5,8 @@ export const POSTS_QUERY = defineQuery(
   `*[_type == "post"
   && defined(category->slug.current)
   && !(_id in path("drafts.**"))] | order(publishedAt desc){
-  _id, title, "slug": slug.current, "category": category->slug.current
+  _id, title, publishedAt, _updatedAt, "slug": slug.current,
+  "category": category->{"slug": slug.current, name}
   }`
 )
 
