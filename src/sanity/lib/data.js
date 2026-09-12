@@ -1,20 +1,22 @@
 import {cache} from 'react'
-import {client} from '../client'
+import {sanityFetch} from '../client'
 import {POST_QUERY, POSTS_QUERY} from './queries'
 
 /* POSTS */
 export const getPost = cache(async (category, slug) => {
-  try {
-    return await client.fetch(POST_QUERY, {category, slug})
-  } catch {
-    return null
-  }
+    const result = await sanityFetch({
+    query: POST_QUERY,
+    params: {slug, category},
+    revalidate: 60
+  });
+  return result;
 })
 
+
 export const getPosts = cache(async () => {
-  try {
-    return await client.fetch(POSTS_QUERY)
-  } catch {
-    return []
-  }
+  const result = await sanityFetch({
+    query: POSTS_QUERY,
+    tags: ['post']
+  });
+  return result;
 })

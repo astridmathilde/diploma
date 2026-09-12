@@ -6,3 +6,17 @@ export const client = createClient({
   apiVersion: '2025-01-01',
   useCdn: false,
 })
+
+export async function sanityFetch({
+  query,
+  params = {},
+  revalidate = 60,
+  tags = [],
+}) {
+  return client.fetch(query, params, {
+    next: {
+      revalidate: tags.length ? false : revalidate,
+      tags,
+    },
+  })
+}

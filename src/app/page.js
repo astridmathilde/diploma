@@ -1,7 +1,7 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import {formatDate} from '@/lib/date'
-import {getPosts} from '@/sanity/lib/data'
+import { formatDate } from '@/lib/date';
+import { getPosts } from '@/sanity/lib/data';
 
 export default async function Home() {
   const posts = await getPosts()
