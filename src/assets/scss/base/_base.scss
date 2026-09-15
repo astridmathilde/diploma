@@ -21,18 +21,15 @@ body {
   color: variables.$color;
 
   @media all and (min-width: variables.$screen-xs) {
-    font-size: 12px;
-  }
-
-  @media all and (min-width: 500px) {
-    overflow-y: hidden;
-    max-height: 100vh;
-    flex-direction: row;
-    gap: 1em;
+    font-size: 14px;
   }
 
   @media all and (min-width: variables.$screen-sm) {
-    font-size: 14px;
+    overflow-y: hidden;
+    max-height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
   }
 
   @media all and (min-width: variables.$screen-md) {
@@ -41,6 +38,11 @@ body {
 
   @media all and (min-width: variables.$screen-lg) {
     gap: 2em;
+    //font-size: 20px;
+  }
+
+  @media all and (min-width: variables.$screen-xl) {
+    font-size: 20px;
   }
 
   a {

@@ -4,16 +4,12 @@ main {
   border-top: 0.5px solid variables.$color;
   padding-top: 1em;
 
-  @media all and (min-width: 500px) {
+  @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
-    max-width: 50vw;
+    max-width: 70vw;
     border-top: 0;
     padding-top: 0;
     padding-left: 1em;
-  }
-
-  @media all and (min-width: variables.$screen-md) {
-    max-width: 70vw;
   }
 
   @media all and (min-width: variables.$screen-lg) {

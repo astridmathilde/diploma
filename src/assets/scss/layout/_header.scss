@@ -1,13 +1,9 @@
 @use "../base/variables";
 
 header {
-  @media all and (min-width: 500px) {
-    overflow-y: scroll;
-    max-width: 50vw;
-  }
-
   @media all and (min-width: variables.$screen-md) {
-    max-width: 30ch;
+    overflow-y: scroll;
+    max-width: 30vw;
   }
 
   @media all and (min-width: variables.$screen-lg) {
