@@ -1,0 +1,33 @@
+@use "../base/variables";
+
+main {
+  border-top: 0.5px solid variables.$color;
+  padding-top: 1em;
+
+  @media all and (min-width: 500px) {
+    overflow-y: scroll;
+    max-width: 50vw;
+    border-top: 0;
+    padding-top: 0;
+    padding-left: 1em;
+  }
+
+  @media all and (min-width: variables.$screen-md) {
+    max-width: 70vw;
+  }
+
+  @media all and (min-width: variables.$screen-lg) {
+    max-width: 60vw;
+    padding-left: 2em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul {
+    max-width: variables.$text-width;
+  }
+}
