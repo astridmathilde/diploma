@@ -1,14 +1,14 @@
 @use "../base/variables";
 
 main {
-  border-top: 0.5px solid;
-  padding-top: 1em;
+  margin-top: 2em;
   word-wrap: break-word;
 
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
     max-width: variables.$text-width;
     width: variables.$text-width;
+    margin: 0;
     border-top: 0;
     padding: 0 0 2.4em 1em;
   }

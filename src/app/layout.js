@@ -22,6 +22,16 @@ const apercu = localFont({
       path: '../assets/fonts/Apercu-Italic.woff2',
       weight: '400',
       style: 'italic',
+    },
+    {
+      path: '../assets/fonts/Apercu-LightItalic.woff2',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: '../assets/fonts/Apercu-Light.woff2',
+      weight: '300',
+      style: 'normal',
     }
   ]
 });
