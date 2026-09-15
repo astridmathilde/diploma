@@ -88,9 +88,7 @@ export default async function RootLayout({ children }) {
     </div>
     </header>
     
-    <main>
     {children}
-    </main>
     </ThemeProvider>
     </body>
     </html>

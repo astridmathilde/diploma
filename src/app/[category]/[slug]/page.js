@@ -59,6 +59,7 @@ export default async function PostPage({params}) {
   }
   
   return (
+    <main>
     <article>
     <h2>{post.title}</h2>
     <PortableText value={post.content} components={components} />
@@ -67,5 +68,6 @@ export default async function PostPage({params}) {
      <p><Link href="/">Close</Link></p>
     </footer>
     </article>
+    </main>
   )
 }

@@ -1,33 +1,21 @@
 @use "../base/variables";
 
 main {
-  border-top: 0.5px solid variables.$color;
+  border-top: 0.5px solid;
   padding-top: 1em;
+  word-wrap: break-word;
 
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
-    max-width: 70vw;
+    max-width: variables.$text-width;
+    width: variables.$text-width;
     border-top: 0;
     padding-top: 0;
     padding-left: 1em;
   }
 
   @media all and (min-width: variables.$screen-lg) {
-    max-width: 60vw;
+    max-width: variables.$text-width;
     padding-left: 2em;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul {
-    width: variables.$text-width;
-
-    @media all and (max-width: variables.$screen-sm) {
-      max-width: variables.$text-width;
-    }
   }
 }
