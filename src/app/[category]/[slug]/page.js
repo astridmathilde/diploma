@@ -63,16 +63,8 @@ export default async function PostPage({params}) {
     <h1>{post.title}</h1>
     <PortableText value={post.content} components={components} />
     <footer>
-    {post.publishedAt ? (
-      <p>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-      </p>
-    ) : null }
-    {post._updatedAt ? (
-      <p>
-      Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>
-      </p>
-    ) : null }
-        <p><em>Designing Calm: Tools for digital minimalism.</em> A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a></p>
+     <p>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
+        <p><em>Designing Calm: Tools for digital minimalism.</em> A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.</p>
      <p><Link href="/">Back to index</Link></p>
 
    

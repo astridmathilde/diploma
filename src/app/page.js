@@ -26,10 +26,9 @@ export default async function Home() {
   categories.sort((a, b) => lastUpdated(b) - lastUpdated(a))
 
   return (
-    <main>
+    <>
       <h1>Designing calm: Tools for digital minimalism</h1>
-      <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a></p>
-      <p>The Oslo School of Architecture and Design, Spring 2027</p>
+      <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.<br />The Oslo School of Architecture and Design, Spring 2027.</p>
 
       {categories.map((category) => (
         <section key={category.slug}>
@@ -57,6 +56,6 @@ export default async function Home() {
           <li><a href="https://www.are.na/astrid-mathilde-boberg/my-diploma-tools-methods" rel="external" target="_blank">Tools & methods</a></li>
         </ul>
       </section>
-    </main>
+    </>
   )
 }
