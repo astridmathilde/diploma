@@ -1,3 +1,4 @@
+import { ThemeProvider } from "next-themes";
 import "@/assets/scss/global.scss";
 import localFont from 'next/font/local';
 import IconExternal from "@/components/icons/icon-external";
@@ -52,8 +53,9 @@ export default async function RootLayout({ children }) {
   
   categories.sort((a, b) => lastUpdated(b) - lastUpdated(a))
   return (
-    <html lang="en" className={apercu.className}>
+    <html lang="en" className={apercu.className} suppressHydrationWarning>
     <body>
+    <ThemeProvider>
     <header>
     <h1>Designing calm: Tools for digital minimalism</h1>
     <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.<br />The Oslo School of Architecture and Design, Spring 2027.</p>
@@ -85,11 +87,11 @@ export default async function RootLayout({ children }) {
     </ul>
     </div>
     </header>
-
+    
     <main>
     {children}
     </main>
-
+    </ThemeProvider>
     </body>
     </html>
   );

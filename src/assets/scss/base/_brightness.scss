@@ -1,0 +1,37 @@
+@use "../base/variables";
+
+html {
+  &[data-theme="dark"] {
+    body {
+      background-color: variables.$background-dark;
+      color: variables.$color-dark;
+
+      a {
+        text-decoration-color: variables.$color-link-dark;
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration-color: variables.$color-dark;
+        }
+      }
+    }
+  }
+
+  &[data-theme="light"] {
+    body {
+      background-color: variables.$background;
+      color: variables.$color;
+
+      a {
+        text-decoration-color: variables.$color-link;
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration-color: variables.$color;
+        }
+      }
+    }
+  }
+}
