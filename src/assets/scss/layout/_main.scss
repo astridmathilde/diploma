@@ -10,8 +10,7 @@ main {
     max-width: variables.$text-width;
     width: variables.$text-width;
     border-top: 0;
-    padding-top: 0;
-    padding-left: 1em;
+    padding: 0 0 2.4em 1em;
   }
 
   @media all and (min-width: variables.$screen-lg) {
