@@ -24,6 +24,10 @@ main {
   h6,
   p,
   ul {
-    max-width: variables.$text-width;
+    width: variables.$text-width;
+
+    @media all and (max-width: variables.$screen-sm) {
+      max-width: variables.$text-width;
+    }
   }
 }
