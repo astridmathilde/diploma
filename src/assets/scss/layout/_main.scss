@@ -6,6 +6,7 @@ main {
 
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
+    scrollbar-width: thin;
     max-width: variables.$text-width;
     width: variables.$text-width;
     margin: 0;

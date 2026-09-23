@@ -29,6 +29,11 @@ html {
       main {
         border-color: variables.$color-dark;
       }
+
+      main,
+      header {
+        scrollbar-color: variables.$color-link-dark transparent;
+      }
     }
   }
 
@@ -59,6 +64,11 @@ html {
 
       main {
         border-color: variables.$color;
+      }
+
+      main,
+      header {
+        scrollbar-color: variables.$color-link transparent;
       }
     }
   }

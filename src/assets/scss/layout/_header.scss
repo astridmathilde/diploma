@@ -3,6 +3,7 @@
 header {
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
+    scrollbar-width: thin;
     padding-bottom: 2.4em;
   }
 
