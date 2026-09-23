@@ -9,6 +9,12 @@ import {getPost} from '@/sanity/lib/data'
 import {formatDate} from '@/lib/date'
 
 const components = {
+  block: {
+    h3: ({children, value}) => {
+      const text = value.children.map((child) => child.text ?? '').join('')
+      return <h3 id={text.toLowerCase().replace(/\s+/g, '-')}>{children}</h3>
+    },
+  },
   types: {
     image: BlockImage,
     video: BlockVideo,
@@ -23,6 +29,15 @@ const components = {
           <a href={url} target="_blank" rel="noreferrer">{children}</a>
         ) : (
           <Link href={url}>{children}</Link>
+        )
+      }
+
+      const relativeHref = value?.relativeHref
+      if (relativeHref) {
+        return relativeHref.startsWith('#') ? (
+          <a href={relativeHref}>{children}</a>
+        ) : (
+          <Link href={relativeHref}>{children}</Link>
         )
       }
 

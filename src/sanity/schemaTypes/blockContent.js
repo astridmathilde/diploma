@@ -1,4 +1,3 @@
-import {AsteriskIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType, DEFAULT_DECORATORS} from 'sanity'
 
 export const blockContent = defineType({
@@ -21,7 +20,7 @@ export const blockContent = defineType({
           {
             title: 'Superscript',
             value: 'sup',
-            icon: AsteriskIcon,
+            icon: () => 'x²',
             component: ({children}) => <sup>{children}</sup>,
           },
         ],
@@ -48,6 +47,14 @@ export const blockContent = defineType({
                 },
               }),
               defineField({
+                name: 'relativeHref',
+                title: 'Relative link',
+                description:
+                  'Link to a section, e.g. /my-category/my-post#my-headline, or #my-headline for this page',
+                type: 'string',
+                validation: (rule) => rule.regex(/^(\/|#)/).error('Must start with "/" or "#"'),
+              }),
+              defineField({
                 name: 'openInNewTab',
                 title: 'Open in new tab',
                 type: 'boolean',
@@ -56,13 +63,16 @@ export const blockContent = defineType({
             ],
             validation: (rule) =>
               rule.custom((value) => {
-                const hasHref = Boolean(value?.href)
-                const hasReference = Boolean(value?.reference?._ref)
-                if (!hasHref && !hasReference) {
-                  return 'Add an external URL or select a post to link to'
+                const chosen = [
+                  Boolean(value?.href),
+                  Boolean(value?.reference?._ref),
+                  Boolean(value?.relativeHref),
+                ].filter(Boolean).length
+                if (chosen === 0) {
+                  return 'Add an external URL, a relative link, or select a post to link to'
                 }
-                if (hasHref && hasReference) {
-                  return 'Choose either an external URL or a post, not both'
+                if (chosen > 1) {
+                  return 'Choose only one link type'
                 }
                 return true
               }),
