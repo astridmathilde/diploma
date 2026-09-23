@@ -25,7 +25,7 @@ body {
 
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: hidden;
-    max-height: 100vh;
+    max-height: 99vh;
     flex-direction: row;
     justify-content: space-between;
     gap: 1em;
@@ -45,6 +45,7 @@ body {
 
   a {
     color: inherit;
+    cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 1px;
     text-decoration-skip-ink: none;
