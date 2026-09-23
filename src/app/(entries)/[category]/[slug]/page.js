@@ -46,7 +46,7 @@ const components = {
 }
 
 const apercuMono = localFont({
-  src:  '../../../assets/fonts/Apercu-Mono.woff2'
+  src:  '../../../../assets/fonts/Apercu-Mono.woff2'
 });
 
 
