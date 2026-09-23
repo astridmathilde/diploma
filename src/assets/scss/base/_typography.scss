@@ -15,18 +15,11 @@ h2 {
 
 h1 {
   font-style: italic;
-  font-size: 1.2em;
   line-height: 120%;
 }
 
 main h2 {
   margin-top: 0;
-  text-transform: none;
-}
-
-h2,
-h3 {
-  text-transform: uppercase;
 }
 
 h2 {
@@ -40,5 +33,5 @@ h3 {
 
 .mono {
   text-transform: uppercase !important;
-  font-size: 0.8em;
+  font-size: 0.85em;
 }

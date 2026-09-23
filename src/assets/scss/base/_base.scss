@@ -36,13 +36,8 @@ body {
     font-size: 16px;
   }
 
-  @media all and (min-width: variables.$screen-lg) {
-    gap: 2em;
-    font-size: 20px;
-  }
-
   @media all and (min-width: variables.$screen-xl) {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   a {
