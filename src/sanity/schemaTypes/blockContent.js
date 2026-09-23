@@ -1,4 +1,5 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {AsteriskIcon} from '@sanity/icons'
+import {defineArrayMember, defineField, defineType, DEFAULT_DECORATORS} from 'sanity'
 
 export const blockContent = defineType({
   name: 'blockContent',
@@ -15,6 +16,15 @@ export const blockContent = defineType({
         {title: 'H6', value: 'h6'},
       ],
       marks: {
+        decorators: [
+          ...DEFAULT_DECORATORS,
+          {
+            title: 'Superscript',
+            value: 'sup',
+            icon: AsteriskIcon,
+            component: ({children}) => <sup>{children}</sup>,
+          },
+        ],
         annotations: [
           defineField({
             name: 'link',

@@ -14,6 +14,7 @@ const components = {
     video: BlockVideo,
   },
   marks: {
+    sup: ({children}) => <sup>{children}</sup>,
     link: ({children, value}) => {
       const {category, slug} = value?.reference ?? {}
       if (category && slug) {
