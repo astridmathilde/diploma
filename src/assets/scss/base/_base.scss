@@ -17,6 +17,7 @@ body {
     -apple-system,
     sans-serif;
   font-size: 12px;
+  letter-spacing: 2%;
   line-height: 1.6;
 
   @media all and (min-width: variables.$screen-xs) {
@@ -27,7 +28,7 @@ body {
     overflow-y: hidden;
     max-height: 99vh;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1em;
   }
 
@@ -37,10 +38,11 @@ body {
 
   @media all and (min-width: variables.$screen-lg) {
     gap: 2em;
+    font-size: 20px;
   }
 
   @media all and (min-width: variables.$screen-xl) {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   a {

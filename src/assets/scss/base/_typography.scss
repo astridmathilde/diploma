@@ -5,6 +5,7 @@ h2,
 h3,
 h4 {
   font-size: 1em;
+  letter-spacing: 3%;
 }
 
 h1,
@@ -14,9 +15,22 @@ h2 {
 
 h1 {
   font-style: italic;
+  font-size: 1.2em;
+  line-height: 120%;
+}
+
+main h2 {
+  margin-top: 0;
+  text-transform: none;
+}
+
+h2,
+h3 {
+  text-transform: uppercase;
 }
 
 h2 {
+  margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
@@ -25,6 +39,6 @@ h3 {
 }
 
 .mono {
-  font-family: "ApercuMono", monospace;
-  font-size: 0.9em;
+  text-transform: uppercase !important;
+  font-size: 0.8em;
 }

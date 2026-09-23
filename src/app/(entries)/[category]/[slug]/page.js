@@ -61,10 +61,6 @@ const components = {
   },
 }
 
-const apercuMono = localFont({
-  src:  '../../../../assets/fonts/Apercu-Mono.woff2'
-});
-
 
 export async function generateMetadata({params}) {
   const {category, slug} = await params
@@ -86,7 +82,7 @@ export default async function PostPage({params}) {
     <h2>{post.title}</h2>
     <PortableText value={post.content} components={components} />
     <footer>
-     <p className={apercuMono.className + " mono"}>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
+     <p className={"mono"}>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
      <p><Link href="/">Close</Link></p>
     </footer>
     </article>
