@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import localFont from 'next/font/local';
+import { DM_Sans, DM_Mono } from "next/font/google";
 
 export const siteTitle = "Designing Calm: Tools for digital minimalism";
 
@@ -11,34 +11,23 @@ export const metadata = {
   description: "A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
 };
 
-const apercu = localFont({
-  src: [
-    {
-      path: '../assets/fonts/Apercu-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/Apercu-Italic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: '../assets/fonts/Apercu-LightItalic.woff2',
-      weight: '300',
-      style: 'italic',
-    },
-    {
-      path: '../assets/fonts/Apercu-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    }
-  ]
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-dm-sans",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-dm-mono",
 });
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en" className={apercu.className} suppressHydrationWarning>
+    <html lang="en" className={dmSans.variable + " " + dmMono.variable} suppressHydrationWarning>
     <body>
     <ThemeProvider>
     {children}

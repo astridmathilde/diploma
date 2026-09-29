@@ -5,7 +5,12 @@ h2,
 h3,
 h4 {
   font-size: 1em;
-  letter-spacing: 3%;
+}
+
+h2,
+h3,
+h4 {
+  font-family: var(--font-dm-mono);
 }
 
 h1,
@@ -14,7 +19,9 @@ h2 {
 }
 
 h1 {
+  font-family: var(--font-dm-sans);
   font-style: italic;
+  font-size: 1.1em;
   line-height: 120%;
 }
 
@@ -32,6 +39,5 @@ h3 {
 }
 
 .mono {
-  text-transform: uppercase !important;
-  font-size: 0.85em;
+  font-family: var(--font-dm-mono);
 }

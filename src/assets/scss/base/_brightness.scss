@@ -4,16 +4,24 @@ html {
   &[data-theme="dark"] {
     body {
       background-color: variables.$background-dark;
-      font-weight: 300;
+      font-weight: 340;
       color: variables.$color-dark;
 
-      h1,
       h2,
       h3,
       h4,
       h5,
       h6 {
         font-weight: 300;
+      }
+
+      h1 {
+        font-weight: 280;
+      }
+
+      .mono {
+        font-weight: 300;
+        font-size: 0.9em;
       }
 
       a {
@@ -40,24 +48,24 @@ html {
   &[data-theme="light"] {
     body {
       background-color: variables.$background;
-      font-weight: 400;
+      font-weight: 415;
       color: variables.$color;
-
-      h1 {
-        font-weight: 400;
-      }
 
       h2,
       h3,
       h4,
       h5,
-      h6,
-      .mono {
+      h6 {
         font-weight: 400;
       }
 
+      h1 {
+        font-weight: 380;
+      }
+
       .mono {
-        font-size: 0.9em;
+        font-weight: 400;
+        font-size: 0.95em;
       }
 
       a {

@@ -12,7 +12,7 @@ body {
   position: relative;
   margin: 1.4em;
   font-family:
-    "Apercu",
+    var(--font-dm-sans),
     system-ui,
     -apple-system,
     sans-serif;
