@@ -5,17 +5,26 @@ main {
   word-wrap: break-word;
 
   @media all and (min-width: variables.$screen-sm) {
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    max-width: variables.$text-width;
-    width: variables.$text-width;
+    display: flex;
     margin: 0;
-    border-top: 0;
-    padding: 0 0 2.4em 1em;
+    flex: 1 1 auto;
+    gap: 1em;
+
+    > article {
+      flex: 0 1 variables.$text-width;
+      min-width: variables.$column-min-width;
+      max-width: variables.$text-width;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      padding: 0 0 2.4em 1em;
+    }
   }
 
   @media all and (min-width: variables.$screen-lg) {
-    max-width: variables.$text-width;
-    padding-left: 2em;
+    gap: 2em;
+
+    > article {
+      padding-left: 2em;
+    }
   }
 }

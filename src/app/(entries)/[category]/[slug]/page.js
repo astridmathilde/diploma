@@ -1,64 +1,6 @@
 import {notFound} from 'next/navigation'
-import {PortableText} from 'next-sanity'
-import Link from 'next/link'
-import BlockImage from '@/components/image'
-import BlockVideo from '@/components/video'
 import {getPost} from '@/sanity/lib/data'
-import {formatDate} from '@/lib/date'
-
-const components = {
-  block: {
-    h3: ({children, value}) => {
-      const text = value.children.map((child) => child.text ?? '').join('')
-      return <h3 id={text.toLowerCase().replace(/\s+/g, '-')}>{children}</h3>
-    },
-  },
-  types: {
-    image: BlockImage,
-    video: BlockVideo,
-  },
-  marks: {
-    sup: ({children}) => <sup>{children}</sup>,
-    link: ({children, value}) => {
-      const {category, slug} = value?.reference ?? {}
-      if (category && slug) {
-        const url = `/${category}/${slug}`
-        return value?.openInNewTab ? (
-          <a href={url} target="_blank" rel="noreferrer">{children}</a>
-        ) : (
-          <Link href={url}>{children}</Link>
-        )
-      }
-
-      const relativeHref = value?.relativeHref
-      if (relativeHref) {
-        return relativeHref.startsWith('#') ? (
-          <a href={relativeHref}>{children}</a>
-        ) : (
-          <Link href={relativeHref}>{children}</Link>
-        )
-      }
-
-      const href = value?.href
-      if (href) {
-        const external =
-          !href.startsWith('/') && !href.startsWith('mailto:') && !href.startsWith('tel:')
-        return (
-          <a
-            href={href}
-            target={external || value?.openInNewTab ? '_blank' : undefined}
-            rel={external ? 'noreferrer noopener' : undefined}
-          >
-            {children}
-          </a>
-        )
-      }
-
-      return <span>{children}</span>
-    },
-  },
-}
-
+import BlockEntry from '@/components/entry'
 
 export async function generateMetadata({params}) {
   const {category, slug} = await params
@@ -66,24 +8,32 @@ export async function generateMetadata({params}) {
   return {title: post?.title ?? 'Page not found'}
 }
 
-export default async function PostPage({params}) {
+export default async function PostPage({params, searchParams}) {
   const {category, slug} = await params
+  const {connection} = await searchParams
   const post = await getPost(category, slug)
   
   if (!post) {
     notFound()
   }
   
+  const pairs = String(connection ?? '')
+  .split(',')
+  .filter(Boolean)
+  .map((pair) => pair.split('/'))
+  .filter((parts) => parts.length === 2 && parts.every(Boolean))
+  
+  const connectionPosts = await Promise.all(
+    pairs.map(([category, slug]) => getPost(category, slug))
+  )
+  
   return (
     <main>
-    <article>
-    <h2>{post.title}</h2>
-    <PortableText value={post.content} components={components} />
-    <footer>
-     <p className="mono">Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
-     <p><Link href="/">Close</Link></p>
-    </footer>
-    </article>
+    <BlockEntry post={post} />
+    
+    {connectionPosts.map((post, i) =>
+      post ? <BlockEntry key={pairs[i].join('/')} post={post} isConnection depth={i + 1} /> : null
+    )}
     </main>
   )
 }

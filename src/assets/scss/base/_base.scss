@@ -4,11 +4,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scrollbar-width: thin;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   position: relative;
   margin: 1.4em;
   font-family:
@@ -24,14 +23,6 @@ body {
     font-size: 14px;
   }
 
-  @media all and (min-width: variables.$screen-sm) {
-    overflow-y: hidden;
-    max-height: 99vh;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1em;
-  }
-
   @media all and (min-width: variables.$screen-md) {
     font-size: 16px;
   }
@@ -40,12 +31,35 @@ body {
     font-size: 20px;
   }
 
+  .columns {
+    @media all and (min-width: variables.$screen-sm) {
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden;
+      overflow-x: auto;
+      width: 100%;
+      max-height: 99vh;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1em;
+    }
+
+    @media all and (min-width: variables.$screen-lg) {
+      gap: 2em;
+    }
+  }
+
   a {
     color: inherit;
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 1px;
     text-decoration-skip-ink: none;
+
+    &:focus-visible {
+      outline: 0.5px solid currentcolor;
+      outline-offset: 4px;
+    }
   }
 
   figure {

@@ -1,9 +1,20 @@
-import Link from 'next/link';
 import { formatDate } from '@/lib/date';
-import { getPosts } from '@/sanity/lib/data';
 import IconExternal from "@/components/icons/icon-external";
-import { siteTitle } from '../layout';
+import Link from "next/link";
+
+import { getPosts } from "@/sanity/lib/data";
 import "@/assets/scss/global.scss";
+
+export const siteTitle = "Designing Calm: Tools for digital minimalism";
+
+export const metadata = {
+  title: {
+    default: siteTitle,
+    template: "%s – " + siteTitle,
+  },
+  description: "A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
+};
+
 
 export default async function PageLayout({ children }) {
   const posts = await getPosts()
@@ -26,9 +37,11 @@ export default async function PageLayout({ children }) {
     Math.max(...category.posts.map((post) => new Date(post._updatedAt ?? 0).getTime()))
   
   categories.sort((a, b) => lastUpdated(b) - lastUpdated(a))
+  
   return (
-    <>
-    <header>
+    <>    
+    <div className="columns">
+    <header id="site-header">
     <h1>{siteTitle}</h1>
     <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.<br />The Oslo School of Architecture and Design, Spring 2027.</p>
     
@@ -61,6 +74,8 @@ export default async function PageLayout({ children }) {
     </header>
     
     {children}
+    </div>
+    
     </>
   );
 }

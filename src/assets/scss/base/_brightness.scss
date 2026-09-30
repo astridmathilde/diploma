@@ -2,6 +2,12 @@
 
 html {
   &[data-theme="dark"] {
+    *,
+    *::before,
+    *::after {
+      scrollbar-color: variables.$color-link-dark transparent;
+    }
+
     body {
       background-color: variables.$background-dark;
       font-weight: 340;
@@ -37,15 +43,16 @@ html {
       main {
         border-color: variables.$color-dark;
       }
-
-      main,
-      header {
-        scrollbar-color: variables.$color-link-dark transparent;
-      }
     }
   }
 
   &[data-theme="light"] {
+    *,
+    *::before,
+    *::after {
+      scrollbar-color: variables.$color-link transparent;
+    }
+
     body {
       background-color: variables.$background;
       font-weight: 415;
@@ -80,11 +87,6 @@ html {
 
       main {
         border-color: variables.$color;
-      }
-
-      main,
-      header {
-        scrollbar-color: variables.$color-link transparent;
       }
     }
   }

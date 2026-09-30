@@ -1,0 +1,14 @@
+@use "../base/variables";
+
+main > article:not(:first-child) {
+  display: none;
+
+  @media all and (min-width: variables.$screen-sm) {
+    display: block;
+  }
+
+  &:focus-visible {
+    outline: 0.5px solid currentcolor;
+    outline-offset: 4px;
+  }
+}
