@@ -43,6 +43,8 @@ export default async function PageLayout({ children }) {
     <div className="columns">
     <header id="site-header">
     <h1>{siteTitle}</h1>
+    <Link href="/" className="back">← Back to index</Link>
+    <div className="header-content">
     <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.<br />The Oslo School of Architecture and Design, Spring 2027.</p>
     
     {categories.map((category) => (
@@ -70,6 +72,7 @@ export default async function PageLayout({ children }) {
     <li><a href="https://www.are.na/astrid-mathilde-boberg/my-diploma-research" rel="external" target="_blank">Research</a> <IconExternal /></li>
     <li><a href="https://www.are.na/astrid-mathilde-boberg/my-diploma-tools-methods" rel="external" target="_blank">Tools & methods</a> <IconExternal /></li>
     </ul>
+    </div>
     </div>
     </header>
     

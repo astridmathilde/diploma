@@ -4,18 +4,17 @@ header {
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
     overflow-x: hidden;
-    //flex: 0 1 33vw;
     min-width: 33vw;
     padding-bottom: 2.4em;
     font-size: 0.85em;
   }
 
   @media all and (min-width: variables.$screen-lg) {
-    //   max-width: 33vw;
+    font-size: 1em;
   }
 
-  @media all and (min-width: variables.$screen-lg) {
-    font-size: 1em;
+  .back {
+    display: none;
   }
 
   .resources {

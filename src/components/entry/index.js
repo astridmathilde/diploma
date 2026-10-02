@@ -62,7 +62,7 @@ export default function BlockEntry({post, depth = 0, isConnection = false}) {
     <p>{isConnection ? (
       <CloseConnection category={post.category.slug} slug={post.slug} title={post.title} />
     ) : (
-      <Link href="/">Close</Link>
+      <Link className={styles.close} href="/">Close</Link>
     )}</p>
     </footer>
     

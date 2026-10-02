@@ -1,6 +1,12 @@
 @use "../../assets/scss/base/variables";
 
 .entry {
+  @media all and (max-width: variables.$screen-sm) {
+    .close {
+      display: none;
+    }
+  }
+
   @media all and (min-width: variables.$screen-sm) {
     flex: 0 1 variables.$text-width;
     min-width: variables.$column-min-width;
