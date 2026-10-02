@@ -6,14 +6,10 @@
     flex-direction: column;
     overflow-y: hidden;
     overflow-x: scroll;
-    min-width: 100vw;
-    max-height: 99vh;
+    min-width: 100%;
+    max-height: calc(100vh - 2.8em);
     flex-direction: row;
     justify-content: flex-start;
     gap: 3em;
-  }
-
-  @media all and (min-width: variables.$screen-lg) {
-    gap: 4em;
   }
 }

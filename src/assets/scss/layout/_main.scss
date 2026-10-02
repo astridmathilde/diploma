@@ -9,6 +9,7 @@ main {
     margin: 0;
     flex: 1 1 auto;
     gap: 2em;
+    padding-right: 2em;
   }
 
   @media all and (min-width: variables.$screen-md) {
