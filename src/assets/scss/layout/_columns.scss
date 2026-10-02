@@ -1,17 +1,15 @@
 @use "../base/variables";
 
-main {
-  margin-top: 2em;
-  word-wrap: break-word;
-
+.columns {
   @media all and (min-width: variables.$screen-sm) {
     display: flex;
-    margin: 0;
-    flex: 1 1 auto;
-    gap: 2em;
-  }
-
-  @media all and (min-width: variables.$screen-md) {
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    min-width: 100vw;
+    max-height: 99vh;
+    flex-direction: row;
+    justify-content: flex-start;
     gap: 3em;
   }
 

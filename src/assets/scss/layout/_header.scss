@@ -3,11 +3,14 @@
 header {
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
-    scrollbar-width: thin;
-    min-width: 24vw;
-    max-width: 33vw;
+    //flex: 0 1 33vw;
+    min-width: 33vw;
     padding-bottom: 2.4em;
-    font-size: 0.9em;
+    font-size: 0.85em;
+  }
+
+  @media all and (min-width: variables.$screen-lg) {
+    //   max-width: 33vw;
   }
 
   @media all and (min-width: variables.$screen-lg) {

@@ -1,0 +1,29 @@
+@use "../../assets/scss/base/variables";
+
+.entry {
+  @media all and (min-width: variables.$screen-sm) {
+    flex: 0 1 variables.$text-width;
+    min-width: variables.$column-min-width;
+    max-width: variables.$text-width;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+  }
+
+  @media all and (min-width: variables.$screen-lg) {
+    min-width: variables.$column-min-width;
+  }
+
+  &:not(:first-child) {
+    display: none;
+
+    @media all and (min-width: variables.$screen-sm) {
+      display: block;
+    }
+
+    &:focus-visible {
+      outline: 0.5px solid currentcolor;
+      outline-offset: 4px;
+    }
+  }
+}
