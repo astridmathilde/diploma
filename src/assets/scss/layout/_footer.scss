@@ -1,0 +1,13 @@
+@use "../base/variables";
+
+#site-footer {
+  margin-top: 2em;
+
+  @media all and (min-width: variables.$screen-sm) {
+    position: fixed;
+    left: 0;
+    margin: 1.4em;
+    bottom: 0;
+    font-size: 0.8em;
+  }
+}

@@ -43,9 +43,9 @@ export default async function PageLayout({ children }) {
     <div className="columns">
     <header id="site-header">
     <h1>{siteTitle}</h1>
-    <Link href="/" className="back">← Back to index</Link>
+    <Link href="/" className="back mono"><span role="img" aria-hidden="true">{"<"} </span>Back to index</Link>
     <div className="header-content">
-    <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a>.<br />The Oslo School of Architecture and Design, Spring 2027.</p>
+    <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Boberg</a>.<br />Oslo School of Architecture and Design, Spring 2027.</p>
     
     {categories.map((category) => (
       <div key={category.slug}>
@@ -78,6 +78,8 @@ export default async function PageLayout({ children }) {
     
     {children}
     </div>
+
+    <footer id="site-footer" className="mono">© <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Mathilde Boberg</a> 2026/2027</footer>
     
     </>
   );

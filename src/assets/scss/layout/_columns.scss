@@ -17,7 +17,8 @@
     @media all and (max-width: variables.$screen-sm) {
       header {
         .back {
-          display: block;
+          display: block !important;
+          font-size: 0.9em;
         }
 
         .header-content {

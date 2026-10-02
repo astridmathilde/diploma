@@ -1,6 +1,6 @@
 @use "../base/variables";
 
-header {
+#site-header {
   @media all and (min-width: variables.$screen-sm) {
     overflow-y: scroll;
     overflow-x: hidden;
