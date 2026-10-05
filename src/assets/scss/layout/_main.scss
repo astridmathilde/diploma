@@ -4,7 +4,7 @@ main {
   margin-top: 2em;
   word-wrap: break-word;
 
-  @media all and (min-width: variables.$screen-sm) {
+  @media all and (min-width: variables.$screen-columns) {
     display: flex;
     margin: 0;
     flex: 1 1 auto;

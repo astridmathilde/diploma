@@ -1,30 +1,38 @@
 @use "../../assets/scss/base/variables";
 
 .entry {
-  @media all and (max-width: variables.$screen-sm) {
+  max-width: variables.$text-width;
+
+  @media all and (max-width: variables.$screen-columns) {
     .close {
       display: none;
     }
   }
 
-  @media all and (min-width: variables.$screen-sm) {
-    flex: 0 1 variables.$text-width;
-    min-width: variables.$column-min-width;
-    max-width: variables.$text-width;
-    height: 100%;
+  @media all and (min-width: variables.$screen-columns) {
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: thin;
+    flex: 0 1 variables.$text-width;
+    min-width: calc(variables.$text-width * 0.9);
+    max-width: calc(variables.$text-width * 0.9);
+    height: 100%;
+    padding-right: 1.4em;
   }
 
   @media all and (min-width: variables.$screen-lg) {
-    min-width: variables.$column-min-width;
+    min-width: variables.$text-width;
+    max-width: variables.$text-width;
+  }
+
+  footer {
+    margin-top: 2em;
   }
 
   &:not(:first-child) {
     display: none;
 
-    @media all and (min-width: variables.$screen-sm) {
+    @media all and (min-width: variables.$screen-columns) {
       display: block;
     }
 

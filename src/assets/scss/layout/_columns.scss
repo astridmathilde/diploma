@@ -1,20 +1,25 @@
 @use "../base/variables";
 
 .columns {
-  @media all and (min-width: variables.$screen-sm) {
+  @media all and (min-width: variables.$screen-columns) {
     display: flex;
     flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2em;
     overflow-y: hidden;
     overflow-x: scroll;
     min-width: 100%;
-    max-height: calc(100vh - 2.8em);
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 3em;
+    height: calc(100vh - 2.8em);
+    padding-bottom: 1.6em;
+  }
+
+  @media all and (min-width: variables.$screen-lg) {
+    gap: 6em;
   }
 
   &:has(main) {
-    @media all and (max-width: variables.$screen-sm) {
+    @media all and (max-width: variables.$screen-columns) {
       header {
         .back {
           display: block !important;

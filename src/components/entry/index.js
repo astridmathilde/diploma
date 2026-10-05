@@ -56,8 +56,8 @@ export default function BlockEntry({post, depth = 0, isConnection = false}) {
     
     <PortableText value={post.content} components={components(depth)} />
     
-    <footer>
-    <p className="mono">Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
+    <footer className="mono">
+    <p>Published at <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>.<br />Last updated at <time dateTime={post._updatedAt}>{formatDate(post._updatedAt)}</time>.</p>
     
     <p>{isConnection ? (
       <CloseConnection category={post.category.slug} slug={post.slug} title={post.title} />

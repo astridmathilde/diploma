@@ -1,16 +1,28 @@
 @use "../base/variables";
 
 #site-header {
-  @media all and (min-width: variables.$screen-sm) {
+  @media all and (min-width: variables.$screen-columns) {
     overflow-y: scroll;
     overflow-x: hidden;
-    min-width: 33vw;
+    min-width: 34ch;
+    padding-right: 1.4em;
     padding-bottom: 2.4em;
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 
-  @media all and (min-width: variables.$screen-lg) {
-    font-size: 1em;
+  h2 {
+    margin-top: 2em;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
   }
 
   .back {
