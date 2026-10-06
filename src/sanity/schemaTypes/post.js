@@ -1,6 +1,5 @@
 import {defineField, defineType} from 'sanity'
 import {client} from '../client'
-import {blockContent} from './blockContent'
 
 export const post = defineType({
   name: 'post',
@@ -25,16 +24,6 @@ export const post = defineType({
       title: 'Category',
       type: 'reference',
       to: [{type: 'category'}],
-      initialValue: async () => {
-        try {
-          const categoryId = await client.fetch(
-            '*[_type == "category" && name == "Thoughts"][0]._id'
-          )
-          return categoryId ? {_type: 'reference', _ref: categoryId} : {}
-        } catch {
-          return {}
-        }
-      },
     }),
     defineField({
       name: 'publishedAt',
