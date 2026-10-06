@@ -34,7 +34,7 @@ export default async function PageLayout({ children }) {
   }
   
   const lastUpdated = (category) =>
-    Math.max(...category.posts.map((post) => new Date(post._updatedAt ?? 0).getTime()))
+    Math.max(...category.posts.map((post) => new Date(post.publishedAt ?? 0).getTime()))
   
   categories.sort((a, b) => lastUpdated(b) - lastUpdated(a))
   
