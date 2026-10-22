@@ -5,16 +5,7 @@ import Link from "next/link";
 import { getPosts } from "@/sanity/lib/data";
 import "@/assets/scss/global.scss";
 
-export const siteTitle = "Beyond the Smartphone";
-
-export const metadata = {
-  title: {
-    default: siteTitle,
-    template: "%s – " + siteTitle,
-  },
-  description: "Towards calm, minimal technology. A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
-};
-
+import { siteTitle } from '../layout';
 
 export default async function PageLayout({ children }) {
   const posts = await getPosts()

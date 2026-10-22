@@ -1,14 +1,14 @@
 import { ThemeProvider } from "next-themes";
 import { DM_Sans, DM_Mono } from "next/font/google";
 
-export const siteTitle = "Designing Calm: Tools for digital minimalism";
+export const siteTitle = "Beyond the smartphone";
 
 export const metadata = {
   title: {
-    default: siteTitle,
+    default: siteTitle + " – " + "Towards calm, minimal technology",
     template: "%s – " + siteTitle,
   },
-  description: "A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
+  description: "Towards calm, minimal technology. A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
 };
 
 const dmSans = DM_Sans({
