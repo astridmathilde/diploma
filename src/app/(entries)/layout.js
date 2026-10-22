@@ -5,14 +5,14 @@ import Link from "next/link";
 import { getPosts } from "@/sanity/lib/data";
 import "@/assets/scss/global.scss";
 
-export const siteTitle = "Designing Calm: Tools for digital minimalism";
+export const siteTitle = "Beyond the Smartphone";
 
 export const metadata = {
   title: {
     default: siteTitle,
     template: "%s – " + siteTitle,
   },
-  description: "A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
+  description: "Towards calm, minimal technology. A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
 };
 
 
@@ -45,7 +45,7 @@ export default async function PageLayout({ children }) {
     <h1>{siteTitle}</h1>
     <Link href="/" className="back mono"><span role="img" aria-hidden="true">{"<"} </span>Back to index</Link>
     <div className="header-content">
-    <p>A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Boberg</a>.<br />AHO, Spring 2027.</p>
+    <p>Towards calm, minimal technology. <br />A diploma project by <a href="https://astridmathilde.no" rel="external" target="_blank">Astrid Boberg</a>.<br />Interaction design, AHO, Spring 2027.</p>
     
     {categories.map((category) => (
       <div key={category.slug}>
