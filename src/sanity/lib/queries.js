@@ -1,5 +1,17 @@
 import {defineQuery} from 'next-sanity'
 
+/* SITE SETTINGS */
+export const SITE_SETTINGS_QUERY = defineQuery(
+  `*[_type == "siteSettings"
+  && !(_id in path("drafts.**"))][0]{
+  title,
+  subtitle,
+  description,
+  resources[]{_key, label, url, "fileUrl": file.asset->url},
+  footer
+  }`
+)
+
 /* POSTS */
 export const POSTS_QUERY = defineQuery(
   `*[_type == "post"

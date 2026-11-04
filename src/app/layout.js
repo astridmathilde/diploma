@@ -1,15 +1,29 @@
 import { ThemeProvider } from "next-themes";
 import { DM_Sans, DM_Mono } from "next/font/google";
 
-export const siteTitle = "Beyond the smartphone";
+import { getSiteSettings } from "@/sanity/lib/data";
+import {
+  siteDescriptionDefault,
+  siteSubtitleDefault,
+  siteTitleDefault,
+} from "@/sanity/lib/defaults";
+import { toPlainText } from "@/sanity/lib/text";
 
-export const metadata = {
-  title: {
-    default: siteTitle + " – " + "Towards calm, minimal technology",
-    template: "%s – " + siteTitle,
-  },
-  description: "Towards calm, minimal technology. A diploma project by Astrid Mathilde Boberg, The Oslo School of Architecture and Design",
-};
+export async function generateMetadata() {
+  const settings = await getSiteSettings();
+  const title = settings?.title || siteTitleDefault;
+  const subtitle = settings?.subtitle || siteSubtitleDefault;
+  const description = settings?.description?.length
+    ? toPlainText(settings.description)
+    : toPlainText(siteDescriptionDefault);
+  return {
+    title: {
+      default: title + " – " + subtitle.replace(/\.$/, ""),
+      template: "%s – " + title,
+    },
+    description: [subtitle, description].filter(Boolean).join(" "),
+  };
+}
 
 const dmSans = DM_Sans({
   subsets: ["latin"],

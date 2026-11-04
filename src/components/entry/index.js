@@ -8,7 +8,7 @@
  import {formatDate} from '@/lib/date'
  import styles from "./style.module.scss"
  
- const components = (depth) => ({
+ export const components = (depth) => ({
   types: {
     image: BlockImage,
     video: BlockVideo,
